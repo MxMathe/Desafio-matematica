@@ -1,0 +1,261 @@
+body {
+  background-image: url(/Imagens/Fundoo.png);
+  align-items: center;
+  text-align: center;
+  padding: 110px;
+  overflow-x: hidden;
+}
+
+/* jogo*/
+
+.titulo{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  position: relative;
+  width: 800px;
+  height: 90px;
+}
+
+.titulo h1{
+  color: #ffffff;
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 4px 5px #000000;
+  font-size: 75px;
+}
+
+.lePeek span {
+  display: inline-block;
+  animation: lePeek 1.5s ease-in-out forwards; /* 'forwards' mantém o estado final */
+  transform-origin: bottom center;
+}
+
+/* Atraso progressivo */
+.lePeek span:nth-child(1) { animation-delay: 0s; }
+.lePeek span:nth-child(2) { animation-delay: 0.05s; }
+.lePeek span:nth-child(3) { animation-delay: 0.1s; }
+.lePeek span:nth-child(4) { animation-delay: 0.15s; }
+.lePeek span:nth-child(5) { animation-delay: 0.2s; }
+.lePeek span:nth-child(6) { animation-delay: 0.25s; }
+.lePeek span:nth-child(7) { animation-delay: 0.3s; }
+.lePeek span:nth-child(8) { animation-delay: 0.35s; }
+.lePeek span:nth-child(9) { animation-delay: 0.4s; }
+.lePeek span:nth-child(10) { animation-delay: 0.45s; }
+.lePeek span:nth-child(11) { animation-delay: 0.5s; }
+.lePeek span:nth-child(12) { animation-delay: 0.55s; }
+.lePeek span:nth-child(13) { animation-delay: 0.6s; }
+.lePeek span:nth-child(14) { animation-delay: 0.65s; }
+.lePeek span:nth-child(15) { animation-delay: 0.7s; }
+.lePeek span:nth-child(16) { animation-delay: 0.75s; }
+.lePeek span:nth-child(17) { animation-delay: 0.8s; }
+.lePeek span:nth-child(18) { animation-delay: 0.85s; }
+.lePeek span:nth-child(19) { animation-delay: 0.9s; }
+.lePeek span:nth-child(20) { animation-delay: 0.95s; }
+.lePeek span:nth-child(21) { animation-delay: 0.95s; }
+
+@keyframes lePeek {
+  25% {
+    transform: rotateX(30deg) translateY(10px) rotate(-13deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(3deg) scale(1.1);
+  }
+}
+
+
+p{
+  margin-bottom: -15px;
+}
+
+#quiz-container {
+  background: #fdf0d2;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  max-width: 600px;
+  margin: -20px auto;
+  text-align: center;
+  border: 3px solid #a7cdff;
+  font-family: 'Comic Sans MS', 'Poppins', cursive;
+  transition: all 0.3s ease;
+}
+
+#quiz-container label{
+  color: #006a74;
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+
+input, select {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 2px solid #ffd180;
+  outline: none;
+  width: 250px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+button {
+  cursor: pointer;
+  height: 50px;
+  background-color: #ff9100;
+  color: white;
+  font-size: 25px;
+  font-style: bold;
+  text-align: center;
+  width: 250px;
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 15px;
+}
+.alterar-nivel-btn{
+  width: 300px;
+}
+
+button:hover {
+  background-color: #00838f;
+}
+
+#pergunta {
+  font-family: "Chewy", system-ui;
+  font-size: 34px;
+  color: #006a74;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+#mensagem {
+  margin-top: 25px;
+  font-family: "Chewy", system-ui;
+  font-size: 50px;
+  font-weight: bold;
+  color: #00ff00;
+}
+
+#nivel-select-container {
+  margin-bottom: 20px;
+  transition: opacity 0.5s ease;
+}
+
+#alterar-nivel-btn {
+  margin-top: 20px;
+}
+
+#tela-nome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
+}
+
+#tela-nome h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+#tela-nome label {
+  margin-bottom: 8px;
+}
+
+#tela-nome input {
+  padding: 10px;
+  font-size: 18px;
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+#tela-nome button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#tela-nome button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Confete */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  z-index: 999;
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+
+/* Resposta errada */
+.erro-container {
+  text-align: center;
+  padding: 50px;
+  animation: fadeInZoom 0.8s ease;
+  background-color: #fff4e6;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+.erro-container h2 {
+  color: #ff9800;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.erro-container p {
+  font-size: 1.1rem;
+  color: #5d4037;
+}
+
+#reiniciar-btn {
+  padding: 10px 25px;
+  font-size: 1rem;
+  margin-top: 25px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#reiniciar-btn:hover {
+  background-color: #fb8c00;
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

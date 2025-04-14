@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Matemática</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rubik+Spray+Paint&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="conteudo-principal">
+        
+        <div class="titulo">
+            <h1 class="lePeek">
+                <span>D</span><span>e</span><span>s</span><span>a</span><span>f</span><span>i</span><span>o</span>
+                <span> </span>
+                <span>d</span><span>e</span>
+                <span> </span>
+                <span>M</span><span>a</span><span>t</span><span>e</span><span>m</span><span>á</span><span>t</span><span>i</span><span>c</span><span>a</span>
+              </h1>
+              
+              
+          
+        </div>
+        <div id="quiz-container">
+            <div id="tela-nome">
+                <h2>Olá! Vamos testar seus conhecimentos de matemática? 🧠</h2>
+                <label for="nome">Digite seu nome:</label>
+                <input type="text" id="nome" placeholder="Seu nome aqui" required />
+                <br><br>
+                <button onclick="avancarParaSelecaoNivel()">Vamos começar!</button>
+              </div>
+            <div id="nivel-select-container">
+                <label for="nivel">Escolha um nível (opcional):</label><br>
+                <select id="nivel">
+                    <option value="">Começar do Nível 1</option>
+                    <option value="1">Nível 1 - Adição</option>
+                    <option value="2">Nível 2 - Adição e Subtração</option>
+                    <option value="3">Nível 3 - Multiplicação</option>
+                    <option value="4">Nível 4 - Divisão</option>
+                </select><br>
+                <button onclick="iniciarQuiz()">Iniciar</button>
+            </div>
+
+            <div id="quiz" style="display:none">
+                <div id="nivel-atual"></div>
+                <div id="pergunta"></div>
+                <input type="number" id="resposta" placeholder="Digite sua resposta">
+                <br>
+                <button onclick="verificarResposta()">Responder</button>
+                <div id="mensagem"></div>
+                <p class="alterar">Quer alterar o nivel?</p>
+                <button id="alterar-nivel-btn" onclick="mostrarSelecaoNivel()">Alterar Nível</button>
+                <button id="reiniciar-com-nivel-btn" style="display: none;">Reiniciar com escolha de nível</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="jogo.js"></script>
+    <script src="animacoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+        function mostrarSelecaoNivel() {
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("nivel-select-container").style.opacity = 1;
+            document.getElementById("nivel-select-container").style.display = "block";
+            document.getElementById("alterar-nivel-btn").style.display = "inline-block";
+        }        
+    </script>
+    
+    
+</body>
+</html>
