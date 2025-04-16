@@ -1,7 +1,7 @@
 let nivelAtual = 1;
 let nomeUsuario = "";
 let perguntaAtual = 1;
-let totalPerguntas = 1;
+let totalPerguntas = 5;
 let respostaCorretaGlobal = 0;
 let modoAutomatico = true;
 
@@ -82,7 +82,7 @@ function gerarPergunta() {
         }
     });
     
-    
+    barraProgresso();
 }
 
 function verificarResposta() {
@@ -116,6 +116,12 @@ function verificarResposta() {
     } else {
         mostrarMensagemErro(respostaCorretaGlobal);
     }
+}
+
+function barraProgresso() {
+    const progresso = (perguntaAtual / totalPerguntas) * 100;
+    document.getElementById("progresso-preenchido").style.width = `${progresso}%`;
+    document.getElementById("progresso-texto").textContent = `Pergunta ${perguntaAtual} de ${totalPerguntas}`;
 }
 
 function reiniciarJogo() {
