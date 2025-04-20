@@ -1,11 +1,12 @@
 let nivelAtual = 1;
 let nomeUsuario = "";
 let perguntaAtual = 1;
-let totalPerguntas = 5;
+let totalPerguntas = 10;
 let respostaCorretaGlobal = 0;
 let modoAutomatico = true;
 
 document.getElementById("nivel-select-container").style.display = "none";
+document.getElementById("barra").style.display = "none";
 
 function avancarParaSelecaoNivel() {
     const nomeInput = document.getElementById("nome");
@@ -40,7 +41,7 @@ function iniciarQuiz() {
         modoAutomatico = false;
     }
     document.getElementById("nivel-select-container").style.display = "none";
-
+    document.getElementById("barra").style.display = "block";
     document.getElementById("quiz").style.display = "block";
     document.getElementById("nivel-atual").textContent = `Nível ${nivelAtual}`;
     gerarPergunta();
@@ -57,20 +58,71 @@ function gerarPergunta() {
     let questao = "";
 
     if (nivelAtual === 1) {
+        totalPerguntas = 10;
         questao = `${numero1} + ${numero2}`;
         respostaCorretaGlobal = numero1 + numero2;
     } else if (nivelAtual === 2) {
+        totalPerguntas = 15;
+        const numero1 = Math.floor(Math.random() * 20) + 1;
+        const numero2 = Math.floor(Math.random() * 20) + 1;
         const operacao = Math.random() < 0.5 ? "+" : "-";
-        questao = operacao === "+" ? `${numero1} + ${numero2}` : `${numero1} - ${numero2}`;
-        respostaCorretaGlobal = operacao === "+" ? numero1 + numero2 : numero1 - numero2;
+    
+        let n1 = numero1;
+        let n2 = numero2;
+    
+        // Garante que o resultado da subtração não seja negativo
+        if (operacao === "-" && numero1 < numero2) {
+            n1 = numero2;
+            n2 = numero1;
+        }
+    
+        questao = `${n1} ${operacao} ${n2}`;
+        respostaCorretaGlobal = operacao === "+" ? n1 + n2 : n1 - n2;
+
     } else if (nivelAtual === 3) {
+        totalPerguntas = 10;
         questao = `${numero1} x ${numero2}`;
         respostaCorretaGlobal = numero1 * numero2;
+
     } else if (nivelAtual === 4) {
+        totalPerguntas = 15;
         respostaCorretaGlobal = numero1;
         let resultado = numero1 * numero2;
         questao = `${resultado} ÷ ${numero2}`;
+
+    } else if (nivelAtual === 5) {
+        totalPerguntas = 20;
+        const operacoes = ["+", "-", "x", "÷"];
+        const operacao = operacoes[Math.floor(Math.random() * operacoes.length)];
+    
+        let numero1 = Math.floor(Math.random() * 50) + 1;
+        let numero2 = Math.floor(Math.random() * 50) + 1;
+    
+        if (operacao === "-") {
+            // Garante que o resultado não seja negativo
+            if (numero1 < numero2) [numero1, numero2] = [numero2, numero1];
+            questao = `${numero1} - ${numero2}`;
+            respostaCorretaGlobal = numero1 - numero2;
+        } else if (operacao === "+") {
+            questao = `${numero1} + ${numero2}`;
+            respostaCorretaGlobal = numero1 + numero2;
+        } else if (operacao === "x") {
+            numero1 = Math.floor(Math.random() * 20) + 1;
+            questao = `${numero1} x ${numero2}`;
+            respostaCorretaGlobal = numero1 * numero2;
+        } else if (operacao === "÷") {
+            // Garante divisão exata com números menores
+            numero2 = Math.floor(Math.random() * 10) + 1;
+            respostaCorretaGlobal = Math.floor(Math.random() * 10) + 1;
+            const resultado = respostaCorretaGlobal * numero2;
+            questao = `${resultado} ÷ ${numero2}`;
+        }
     }
+    
+    
+    
+    
+
 
     document.getElementById("pergunta").textContent = `Pergunta ${perguntaAtual}: Quanto é ${questao}?`;
     document.getElementById("resposta").value = "";
@@ -90,7 +142,7 @@ function verificarResposta() {
     const mensagem = document.getElementById("mensagem");
 
     if (resposta === respostaCorretaGlobal) {
-        mensagem.textContent = "Muito bem, ${nomeUsuario}! Resposta correta.";
+        mensagem.textContent = `Muito bem, ${nomeUsuario}! Resposta correta.`;
         perguntaAtual++;
 
         if (perguntaAtual > totalPerguntas) {

@@ -199,7 +199,7 @@ button:hover {
   background-color: #ddd;
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 #progresso-preenchido {
@@ -210,10 +210,12 @@ button:hover {
 }
 
 #progresso-texto {
+  color: #fdfdfd;
+  text-shadow: 2px 4px 5px #000000;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-top: 55px;
 }
 
 
