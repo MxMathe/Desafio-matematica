@@ -1,3 +1,6 @@
+// Animações e transições
+
+// Animação confetes
 function soltarConfetes() {
     const count = 200,
       defaults = {
@@ -41,35 +44,43 @@ function soltarConfetes() {
   }
   
 
-
+// tela de resposta errada
 function mostrarMensagemErro(respostaCorreta) {
-  const container = document.getElementById('conteudo-principal');
-  container.innerHTML = ''; // limpa a tela
-  
+  const quiz = document.getElementById('quiz');
+  const barra = document.getElementById('barra');
+  const quizContainer = document.getElementById('quiz-container');
+
+  if (quiz) quiz.style.display = 'none';
+  if (barra) barra.style.display = 'none';
+
   const erroDiv = document.createElement('div');
-  erroDiv.className = 'erro-container';
-  
+  erroDiv.id = 'mensagem-erro';
   erroDiv.innerHTML = `
     <h2>Ops! Quase lá 😅</h2>
     <p>A resposta correta era: <strong>${respostaCorreta}</strong></p>
     <p>Não tem problema, você pode tentar novamente!</p>
     <button id="reiniciar-btn">Tentar de Novo</button>
   `;
-  
-  container.appendChild(erroDiv);
-  
-  document.getElementById('reiniciar-btn').addEventListener('click', () => {
-    location.reload(); // reinicia o quiz
-  });
+  quizContainer.appendChild(erroDiv);
+
+  const botao = document.getElementById('reiniciar-btn');
+  if (botao) {
+    botao.addEventListener('click', () => {
+      erroDiv.remove();
+      if (quiz) quiz.style.display = 'block';
+      if (barra) barra.style.display = 'block';
+      gerarPergunta();
+    });
+  }
 }
 
-
+// Tela nivel completo
 function mostrarMensagemCompletou(){
   const container = document.getElementById('conteudo-principal');
-  container.innerHTML = ''; // limpa a tela
+  container.innerHTML = '';
   
   const erroDiv = document.createElement('div');
-  erroDiv.className = 'erro-container';
+  erroDiv.className = 'mensagem-container';
   
   erroDiv.innerHTML = `
     <h2>Parabéns ${nomeUsuario}! Você completou todos os níveis! 🎉</h2>
@@ -80,16 +91,16 @@ function mostrarMensagemCompletou(){
   container.appendChild(erroDiv);
   
   document.getElementById('reiniciar-btn').addEventListener('click', () => {
-    location.reload(); // reinicia o quiz
+    location.reload();
   });
 }
-
+// Tela niveis completos
 function mostrarMensagemNivelConcluido() {
   const container = document.getElementById('conteudo-principal');
-  container.innerHTML = ''; // limpa a tela
+  container.innerHTML = '';
   
   const erroDiv = document.createElement('div');
-  erroDiv.className = 'erro-container';
+  erroDiv.className = 'mensagem-container';
   
   erroDiv.innerHTML = `
     <h2>Parabéns ${nomeUsuario}! Você completou o nível 🎉</h2>
@@ -100,7 +111,7 @@ function mostrarMensagemNivelConcluido() {
   container.appendChild(erroDiv);
   
   document.getElementById('reiniciar-btn').addEventListener('click', () => {
-    location.reload(); // reinicia o quiz
+    location.reload();
   });
 }
 

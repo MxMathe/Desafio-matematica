@@ -6,8 +6,7 @@ body {
   overflow-x: hidden;
 }
 
-/* jogo*/
-
+/* Titulo*/
 .titulo{
   position: absolute;
   text-align: center;
@@ -27,14 +26,13 @@ body {
   text-shadow: 2px 4px 5px #000000;
   font-size: 75px;
 }
-
+/* Animação do titulo */
 .lePeek span {
   display: inline-block;
-  animation: lePeek 1.5s ease-in-out forwards; /* 'forwards' mantém o estado final */
+  animation: lePeek 1.5s ease-in-out forwards;
   transform-origin: bottom center;
 }
 
-/* Atraso progressivo */
 .lePeek span:nth-child(1) { animation-delay: 0s; }
 .lePeek span:nth-child(2) { animation-delay: 0.05s; }
 .lePeek span:nth-child(3) { animation-delay: 0.1s; }
@@ -67,6 +65,8 @@ body {
 }
 
 
+
+/* Quiz */
 p{
   margin-bottom: -15px;
 }
@@ -134,11 +134,12 @@ button:hover {
 }
 
 #mensagem {
-  margin-top: 25px;
+  margin-top: 5px;
   font-family: "Chewy", system-ui;
-  font-size: 50px;
+  font-size: 35px;
   font-weight: bold;
   color: #00ff00;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 #nivel-select-container {
@@ -150,6 +151,9 @@ button:hover {
   margin-top: 20px;
 }
 
+
+
+/* Tela inicial */
 #tela-nome {
   display: flex;
   flex-direction: column;
@@ -219,7 +223,7 @@ button:hover {
 }
 
 
-/* Confete */
+/* Animação confete */
 .confetti {
   position: fixed;
   width: 10px;
@@ -235,8 +239,9 @@ button:hover {
 }
 
 
-/* Resposta errada */
-.erro-container {
+/* Mensagens */
+.mensagem-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   padding: 50px;
   animation: fadeInZoom 0.8s ease;
@@ -247,20 +252,43 @@ button:hover {
   box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
 }
 
-.erro-container h2 {
+.mensagem-container h2 {
   color: #ff9800;
-  font-size: 2.2rem;
+  font-size: 35px;
   margin-bottom: 15px;
 }
 
-.erro-container p {
-  font-size: 1.1rem;
+.mensagem-container p {
+  font-size: 20px;
   color: #5d4037;
+  margin-bottom: 10px;
+}
+
+/* Mensagem de resposta errada */
+#mensagem-erro {
+  text-align: center;
+  padding: 50px;
+  animation: fadeInZoom 0.8s ease;
+  background-color: #ffe8c9;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+#mensagem-erro h2 {
+  color: #ff9800;
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+#mensagem-erro p {
+  font-size: 20px;
+  color: #5d4037;
+  margin-bottom: 10px;
 }
 
 #reiniciar-btn {
   padding: 10px 25px;
-  font-size: 1rem;
+  font-size: 18px;
   margin-top: 25px;
   background-color: #ff9800;
   color: white;
