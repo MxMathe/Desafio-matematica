@@ -44,75 +44,9 @@ function soltarConfetes() {
   }
   
 
-// tela de resposta errada
-function mostrarMensagemErro(respostaCorreta) {
-  const quiz = document.getElementById('quiz');
-  const barra = document.getElementById('barra');
-  const quizContainer = document.getElementById('quiz-container');
 
-  if (quiz) quiz.style.display = 'none';
-  if (barra) barra.style.display = 'none';
 
-  const erroDiv = document.createElement('div');
-  erroDiv.id = 'mensagem-erro';
-  erroDiv.innerHTML = `
-    <h2>Ops! Quase lá 😅</h2>
-    <p>A resposta correta era: <strong>${respostaCorreta}</strong></p>
-    <p>Não tem problema, você pode tentar novamente!</p>
-    <button id="reiniciar-btn">Tentar de Novo</button>
-  `;
-  quizContainer.appendChild(erroDiv);
 
-  const botao = document.getElementById('reiniciar-btn');
-  if (botao) {
-    botao.addEventListener('click', () => {
-      erroDiv.remove();
-      if (quiz) quiz.style.display = 'block';
-      if (barra) barra.style.display = 'block';
-      gerarPergunta();
-    });
-  }
-}
-
-// Tela nivel completo
-function mostrarMensagemCompletou(){
-  const container = document.getElementById('conteudo-principal');
-  container.innerHTML = '';
-  
-  const erroDiv = document.createElement('div');
-  erroDiv.className = 'mensagem-container';
-  
-  erroDiv.innerHTML = `
-    <h2>Parabéns ${nomeUsuario}! Você completou todos os níveis! 🎉</h2>
-    <p>Você pode fazer novamente!</p>
-    <button id="reiniciar-btn">Tentar de Novo</button>
-  `;
-  
-  container.appendChild(erroDiv);
-  
-  document.getElementById('reiniciar-btn').addEventListener('click', () => {
-    location.reload();
-  });
-}
-// Tela niveis completos
-function mostrarMensagemNivelConcluido() {
-  const container = document.getElementById('conteudo-principal');
-  container.innerHTML = '';
-  
-  const erroDiv = document.createElement('div');
-  erroDiv.className = 'mensagem-container';
-  
-  erroDiv.innerHTML = `
-    <h2>Parabéns ${nomeUsuario}! Você completou o nível 🎉</h2>
-    <p>Você pode fazer novamente e iniciar por um nivel maior!</p>
-    <button id="reiniciar-btn">Tentar de Novo</button>
-  `;
-  
-  container.appendChild(erroDiv);
-  
-  document.getElementById('reiniciar-btn').addEventListener('click', () => {
-    location.reload();
-  });
-}
+// Resultados
 
 

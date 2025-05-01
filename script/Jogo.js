@@ -4,6 +4,8 @@ let perguntaAtual = 1;
 let totalPerguntas = 10;
 let respostaCorretaGlobal = 0;
 let modoAutomatico = true;
+let acertos = 0;
+let erros = 0;
 
 document.getElementById("nivel-select-container").style.display = "none";
 document.getElementById("barra").style.display = "none";
@@ -88,7 +90,7 @@ function gerarPergunta() {
         questao = `${resultado} ÷ ${numero2}`;
 
     } else if (nivelAtual === 5) {
-        totalPerguntas = 20;
+        totalPerguntas = 15;
         const operacoes = ["+", "-", "x", "÷"];
         const operacao = operacoes[Math.floor(Math.random() * operacoes.length)];
     
@@ -136,6 +138,7 @@ function verificarResposta() {
     if (resposta === respostaCorretaGlobal) {
         mensagem.textContent = `Muito bem, ${nomeUsuario}! Resposta correta.`;
         perguntaAtual++;
+        acertos++
 
         if (perguntaAtual > totalPerguntas) {
             // Verifica o nivel e apresenta mensagem de todos niveis completos
@@ -151,7 +154,7 @@ function verificarResposta() {
                 document.getElementById("nivel-atual").textContent = `Nível ${nivelAtual}`;
                 setTimeout(() => gerarPergunta(), 2000);
             } else {
-                mostrarMensagemNivelConcluido();
+                mostrarMensagemCompletou();
                 soltarConfetes();
                 return;
             }
@@ -160,6 +163,7 @@ function verificarResposta() {
         }
     } else {
         document.getElementById("quiz").style.display = "hidden";
+        erros++
         mostrarMensagemErro(respostaCorretaGlobal);
     }
 }
@@ -175,4 +179,86 @@ function reiniciarJogo() {
     document.getElementById('TelaDeErro').classList.add('hidden');
     document.getElementById('quizContainer').classList.remove('hidden');
     iniciarQuiz();
+}
+
+
+
+
+// Telas de mensagens
+
+// tela de resposta errada
+function mostrarMensagemErro(respostaCorreta) {
+    const quiz = document.getElementById('quiz');
+    const barra = document.getElementById('barra');
+    const quizContainer = document.getElementById('quiz-container');
+  
+    if (quiz) quiz.style.display = 'none';
+    if (barra) barra.style.display = 'none';
+  
+    const erroDiv = document.createElement('div');
+    erroDiv.id = 'mensagem-erro';
+    erroDiv.innerHTML = `
+      <h2>Ops! Quase lá 😅</h2>
+      <p>A resposta correta era: <strong>${respostaCorreta}</strong></p>
+      <p>Não tem problema, você pode tentar novamente!</p>
+      <button id="reiniciar-btn">Tentar de Novo</button>
+    `;
+    quizContainer.appendChild(erroDiv);
+  
+    const botao = document.getElementById('reiniciar-btn');
+    if (botao) {
+      botao.addEventListener('click', () => {
+        erroDiv.remove();
+        if (quiz) quiz.style.display = 'block';
+        if (barra) barra.style.display = 'block';
+        gerarPergunta();
+      });
+    }
   }
+  
+
+// Tela mensagem final
+function mostrarMensagemCompletou() {
+    const mensagemContainer = document.getElementById("mensagem-container");
+    const quizContainer = document.getElementById("quiz-container");
+    const barra = document.getElementById("barra");
+
+    barra.style.display = "none";
+    quizContainer.style.display = "none";
+    mensagemContainer.style.display = "block";
+
+    let mensagemFinal = `
+      <h2>Parabéns! Você completou</h2>
+    `;
+
+    if (nivelAtual < 5) {
+        mensagemFinal += `<p>Você pode fazer novamente e iniciar por um nivel maior!</p>`;
+        mensagemFinal += gerarResumoResultados();
+        mensagemFinal += '<button id="reiniciar-btn">Tentar de Novo</button>'
+    }
+    else {
+        mensagemFinal += `<p>Parabéns ${nomeUsuario}! Você completou todos os níveis! 🎉</p>`;
+        mensagemFinal += gerarResumoResultados();
+        mensagemFinal += '<p>Você pode fazer novamente!</p>'
+        mensagemFinal += '<button id="reiniciar-btn">Tentar de Novo</button>'
+    }
+    
+    mensagemContainer.innerHTML = mensagemFinal;
+    
+    document.getElementById('reiniciar-btn').addEventListener('click', () => {
+      location.reload();
+    });
+  }
+
+
+
+  function gerarResumoResultados() {
+    return `
+        <div id="resumo-resultados">
+            <h3>📊 Seus resultados:</h3>
+            <p>✅ Acertos: ${acertos}</p>
+            <p>❌ Erros: ${erros}</p>
+        </div>
+    `;
+}
+

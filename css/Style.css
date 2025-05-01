@@ -240,28 +240,45 @@ button:hover {
 
 
 /* Mensagens */
-.mensagem-container {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+#mensagem-container {
+  font-family: 'Comic Sans MS', 'Poppins', cursive;
   text-align: center;
   padding: 50px;
   animation: fadeInZoom 0.8s ease;
-  background-color: #fff4e6;
+  background-color: #fde8cb;
   border-radius: 20px;
+  border: 3px solid #a7cdff;
   margin: 40px auto;
   max-width: 500px;
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.mensagem-container h2 {
-  color: #ff9800;
-  font-size: 35px;
+#mensagem-container h2 {
+  color: #0077ff;
+  font-size: 40px;
+  font-weight: bold;
   margin-bottom: 15px;
+  text-shadow: 1px 1px 2px #aaa;
 }
 
-.mensagem-container p {
-  font-size: 20px;
-  color: #5d4037;
+#mensagem-container p {
+  font-size: 19px;
+  color: #000000;
   margin-bottom: 10px;
+}
+#resumo-resultados{
+  text-align: center;
+  margin: 40px auto;
+  width: 280px;
+  background-color: #c6e3ff;
+  border: 2px dashed #87cefa;
+
+}
+#resumo-resultados h3 {
+  font-size: 20px;
+  color: #008800;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 /* Mensagem de resposta errada */
