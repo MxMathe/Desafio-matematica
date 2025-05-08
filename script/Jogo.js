@@ -34,6 +34,8 @@ function iniciarQuiz() {
     const seletor = document.getElementById("nivel").value;
     document.getElementById("mensagem").textContent = "";
     perguntaAtual = 1;
+    acertos = 0;
+    erros = 0;
 
     if (seletor === "") {
         nivelAtual = 1;
@@ -79,7 +81,7 @@ function gerarPergunta() {
         respostaCorretaGlobal = operacao === "+" ? n1 + n2 : n1 - n2;
 
     } else if (nivelAtual === 3) {
-        totalPerguntas = 10;
+        totalPerguntas = 15;
         questao = `${numero1} x ${numero2}`;
         respostaCorretaGlobal = numero1 * numero2;
 
@@ -142,7 +144,7 @@ function verificarResposta() {
 
         if (perguntaAtual > totalPerguntas) {
             // Verifica o nivel e apresenta mensagem de todos niveis completos
-            if (nivelAtual >= 4) {
+            if (nivelAtual >= 5) {
                 mostrarMensagemCompletou();
                 soltarConfetes();
                 return;
