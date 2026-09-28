@@ -282,14 +282,6 @@ Persistência dos resultados em banco de dados.
 
 Em desenvolvimento.
 
-O projeto já possui o fluxo principal do jogo implementado e está sendo
+O projeto já possui o fluxo principal do jogo implementado, está funcional e está sendo
 evoluído gradualmente com novos recursos de interação, feedback e
 apresentação dos resultados.
-
-👨‍💻 Autor
-
-Projeto desenvolvido como prática de desenvolvimento web utilizando
-HTML, CSS e JavaScript.
-
-🧠 Desafio de Matemática --- pratique, evolua e descubra até onde
-você consegue chegar!

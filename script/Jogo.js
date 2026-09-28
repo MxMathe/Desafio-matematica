@@ -241,7 +241,7 @@ function mostrarMensagemCompletou() {
     else {
         mensagemFinal += `<p>Parabéns ${nomeUsuario}! Você completou todos os níveis! 🎉</p>`;
         mensagemFinal += gerarResumoResultados();
-        mensagemFinal += '<p>Você pode fazer novamente!</p>'
+        mensagemFinal += '<p>Você pode tentar fazer novamente!</p>'
         mensagemFinal += '<button id="reiniciar-btn">Tentar de Novo</button>'
     }
     
