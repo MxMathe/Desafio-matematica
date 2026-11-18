@@ -52,7 +52,14 @@ function iniciarQuiz() {
 }
 
 // Gerador de perguntas
-function gerarPergunta() {  
+
+document.getElementById("resposta").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        verificarResposta();
+    }
+});
+
+function gerarPergunta() {
 
     document.getElementById("mensagem").textContent = "";
 
@@ -68,15 +75,15 @@ function gerarPergunta() {
         const numero1 = Math.floor(Math.random() * 20) + 1;
         const numero2 = Math.floor(Math.random() * 20) + 1;
         const operacao = Math.random() < 0.5 ? "+" : "-";
-    
+
         let n1 = numero1;
         let n2 = numero2;
-    
+
         if (operacao === "-" && numero1 < numero2) {
             n1 = numero2;
             n2 = numero1;
         }
-    
+
         questao = `${n1} ${operacao} ${n2}`;
         respostaCorretaGlobal = operacao === "+" ? n1 + n2 : n1 - n2;
 
@@ -95,10 +102,10 @@ function gerarPergunta() {
         totalPerguntas = 15;
         const operacoes = ["+", "-", "x", "÷"];
         const operacao = operacoes[Math.floor(Math.random() * operacoes.length)];
-    
+
         let numero1 = Math.floor(Math.random() * 50) + 1;
         let numero2 = Math.floor(Math.random() * 50) + 1;
-    
+
         if (operacao === "-") {
             if (numero1 < numero2) [numero1, numero2] = [numero2, numero1];
             questao = `${numero1} - ${numero2}`;
@@ -122,12 +129,6 @@ function gerarPergunta() {
     document.getElementById("resposta").value = "";
     document.getElementById("resposta").focus();
 
-    document.getElementById("resposta").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            verificarResposta();
-        }
-    });
-    
     barraProgresso();
 }
 
@@ -164,7 +165,7 @@ function verificarResposta() {
             setTimeout(() => gerarPergunta(), 2000);
         }
     } else {
-        document.getElementById("quiz").style.display = "hidden";
+        document.getElementById("quiz").style.display = "none";
         erros++
         mostrarMensagemErro(respostaCorretaGlobal);
     }
@@ -178,8 +179,7 @@ function barraProgresso() {
 }
 
 function reiniciarJogo() {
-    document.getElementById('TelaDeErro').classList.add('hidden');
-    document.getElementById('quizContainer').classList.remove('hidden');
+    document.getElementById('quiz-container').classList.remove('hidden');
     iniciarQuiz();
 }
 
@@ -193,10 +193,10 @@ function mostrarMensagemErro(respostaCorreta) {
     const quiz = document.getElementById('quiz');
     const barra = document.getElementById('barra');
     const quizContainer = document.getElementById('quiz-container');
-  
+
     if (quiz) quiz.style.display = 'none';
     if (barra) barra.style.display = 'none';
-  
+
     const erroDiv = document.createElement('div');
     erroDiv.id = 'mensagem-erro';
     erroDiv.innerHTML = `
@@ -206,18 +206,18 @@ function mostrarMensagemErro(respostaCorreta) {
       <button id="reiniciar-btn">Tentar de Novo</button>
     `;
     quizContainer.appendChild(erroDiv);
-  
+
     const botao = document.getElementById('reiniciar-btn');
     if (botao) {
-      botao.addEventListener('click', () => {
-        erroDiv.remove();
-        if (quiz) quiz.style.display = 'block';
-        if (barra) barra.style.display = 'block';
-        gerarPergunta();
-      });
+        botao.addEventListener('click', () => {
+            erroDiv.remove();
+            if (quiz) quiz.style.display = 'block';
+            if (barra) barra.style.display = 'block';
+            gerarPergunta();
+        });
     }
-  }
-  
+}
+
 
 // Tela mensagem final
 function mostrarMensagemCompletou() {
@@ -244,17 +244,17 @@ function mostrarMensagemCompletou() {
         mensagemFinal += '<p>Você pode tentar fazer novamente!</p>'
         mensagemFinal += '<button id="reiniciar-btn">Tentar de Novo</button>'
     }
-    
+
     mensagemContainer.innerHTML = mensagemFinal;
-    
+
     document.getElementById('reiniciar-btn').addEventListener('click', () => {
-      location.reload();
+        location.reload();
     });
-  }
+}
 
 
 
-  function gerarResumoResultados() {
+function gerarResumoResultados() {
     return `
         <div id="resumo-resultados">
             <h3>📊 Seus resultados:</h3>
