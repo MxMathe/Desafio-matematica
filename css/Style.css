@@ -1,5 +1,5 @@
 body {
-  background-image: url(/Imagens/Fundoo.png);
+  background-image: url(../Imagens/fundoo.png);
   align-items: center;
   text-align: center;
   padding: 50px;
@@ -7,18 +7,17 @@ body {
 }
 
 /* Titulo*/
-.titulo{
-  position: absolute;
+.titulo {
+  position: relative;
   text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: relative;
   width: 800px;
   height: 80px;
 }
 
-.titulo h1{
+.titulo h1 {
   color: #ffffff;
   font-family: "Chewy", system-ui;
   font-weight: 400;
@@ -26,6 +25,7 @@ body {
   text-shadow: 2px 4px 5px #000000;
   font-size: 75px;
 }
+
 /* Animação do titulo */
 .lePeek span {
   display: inline-block;
@@ -33,32 +33,95 @@ body {
   transform-origin: bottom center;
 }
 
-.lePeek span:nth-child(1) { animation-delay: 0s; }
-.lePeek span:nth-child(2) { animation-delay: 0.05s; }
-.lePeek span:nth-child(3) { animation-delay: 0.1s; }
-.lePeek span:nth-child(4) { animation-delay: 0.15s; }
-.lePeek span:nth-child(5) { animation-delay: 0.2s; }
-.lePeek span:nth-child(6) { animation-delay: 0.25s; }
-.lePeek span:nth-child(7) { animation-delay: 0.3s; }
-.lePeek span:nth-child(8) { animation-delay: 0.35s; }
-.lePeek span:nth-child(9) { animation-delay: 0.4s; }
-.lePeek span:nth-child(10) { animation-delay: 0.45s; }
-.lePeek span:nth-child(11) { animation-delay: 0.5s; }
-.lePeek span:nth-child(12) { animation-delay: 0.55s; }
-.lePeek span:nth-child(13) { animation-delay: 0.6s; }
-.lePeek span:nth-child(14) { animation-delay: 0.65s; }
-.lePeek span:nth-child(15) { animation-delay: 0.7s; }
-.lePeek span:nth-child(16) { animation-delay: 0.75s; }
-.lePeek span:nth-child(17) { animation-delay: 0.8s; }
-.lePeek span:nth-child(18) { animation-delay: 0.85s; }
-.lePeek span:nth-child(19) { animation-delay: 0.9s; }
-.lePeek span:nth-child(20) { animation-delay: 0.95s; }
-.lePeek span:nth-child(21) { animation-delay: 0.95s; }
+.lePeek span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.lePeek span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.lePeek span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.lePeek span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.lePeek span:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.lePeek span:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.lePeek span:nth-child(7) {
+  animation-delay: 0.3s;
+}
+
+.lePeek span:nth-child(8) {
+  animation-delay: 0.35s;
+}
+
+.lePeek span:nth-child(9) {
+  animation-delay: 0.4s;
+}
+
+.lePeek span:nth-child(10) {
+  animation-delay: 0.45s;
+}
+
+.lePeek span:nth-child(11) {
+  animation-delay: 0.5s;
+}
+
+.lePeek span:nth-child(12) {
+  animation-delay: 0.55s;
+}
+
+.lePeek span:nth-child(13) {
+  animation-delay: 0.6s;
+}
+
+.lePeek span:nth-child(14) {
+  animation-delay: 0.65s;
+}
+
+.lePeek span:nth-child(15) {
+  animation-delay: 0.7s;
+}
+
+.lePeek span:nth-child(16) {
+  animation-delay: 0.75s;
+}
+
+.lePeek span:nth-child(17) {
+  animation-delay: 0.8s;
+}
+
+.lePeek span:nth-child(18) {
+  animation-delay: 0.85s;
+}
+
+.lePeek span:nth-child(19) {
+  animation-delay: 0.9s;
+}
+
+.lePeek span:nth-child(20) {
+  animation-delay: 0.95s;
+}
+
+.lePeek span:nth-child(21) {
+  animation-delay: 0.95s;
+}
 
 @keyframes lePeek {
   25% {
     transform: rotateX(30deg) translateY(10px) rotate(-13deg);
   }
+
   50% {
     transform: translateY(-22px) rotate(3deg) scale(1.1);
   }
@@ -67,7 +130,7 @@ body {
 
 
 /* Quiz */
-p{
+p {
   margin-bottom: -15px;
 }
 
@@ -84,7 +147,7 @@ p{
   transition: all 0.3s ease;
 }
 
-#quiz-container label{
+#quiz-container label {
   color: #006a74;
   font-family: "Chewy", system-ui;
   font-weight: 400;
@@ -92,7 +155,8 @@ p{
   font-size: 50px;
 }
 
-input, select {
+input,
+select {
   padding: 10px;
   font-size: 18px;
   border-radius: 15px;
@@ -110,14 +174,15 @@ button {
   background-color: #ff9100;
   color: white;
   font-size: 25px;
-  font-style: bold;
+  font-weight: bold;
   text-align: center;
   width: 250px;
   border: none;
   border-radius: 30px;
   margin-bottom: 15px;
 }
-.alterar-nivel-btn{
+
+.alterar-nivel-btn {
   width: 300px;
 }
 
@@ -234,8 +299,13 @@ button:hover {
 }
 
 @keyframes confetti-fall {
-  0% { transform: translateY(-100px) rotate(0deg); }
-  100% { transform: translateY(100vh) rotate(360deg); }
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
 }
 
 
@@ -267,7 +337,8 @@ button:hover {
   color: #000000;
   margin-bottom: 10px;
 }
-#resumo-resultados{
+
+#resumo-resultados {
   text-align: center;
   margin: 40px auto;
   width: 280px;
@@ -275,6 +346,7 @@ button:hover {
   border: 2px dashed #87cefa;
 
 }
+
 #resumo-resultados h3 {
   font-size: 20px;
   color: #008800;
@@ -319,14 +391,57 @@ button:hover {
   background-color: #fb8c00;
 }
 
+@media (max-width: 768px) {
+  .titulo h1 {
+    font-size: 36px;
+  }
+
+  .titulo {
+    width: 100%;
+  }
+
+  #quiz-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  #quiz-container label {
+    font-size: 28px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  .titulo h1 {
+    font-size: 28px;
+  }
+
+  #quiz-container label {
+    font-size: 22px;
+  }
+
+  #pergunta {
+    font-size: 22px;
+  }
+}
+
+
 @keyframes fadeInZoom {
   from {
     opacity: 0;
     transform: scale(0.7);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
-
