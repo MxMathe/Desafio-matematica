@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,29 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rubik+Spray+Paint&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Signika+Negative:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chewy&family=Rubik+Spray+Paint&family=Signika+Negative:wght@300..700&display=swap"
+        rel="stylesheet">
 
 
 </head>
+
 <body>
     <div id="conteudo-principal">
-        
+
         <div class="titulo">
-            <h1 class="lePeek">
+            <h1 id="titulo" class="lePeek">
                 <span>D</span><span>e</span><span>s</span><span>a</span><span>f</span><span>i</span><span>o</span>
                 <span> </span>
                 <span>d</span><span>e</span>
                 <span> </span>
                 <span>M</span><span>a</span><span>t</span><span>e</span><span>m</span><span>á</span><span>t</span><span>i</span><span>c</span><span>a</span>
-              </h1>
-              
-              
-          
+            </h1>
+
+
+
         </div>
         <div id="quiz-container">
             <div id="tela-nome">
@@ -35,7 +40,7 @@
                 <input type="text" id="nome" placeholder="Seu nome aqui" required />
                 <br><br>
                 <button onclick="avancarParaSelecaoNivel()">Vamos começar!</button>
-              </div>
+            </div>
             <div id="nivel-select-container">
                 <label for="nivel">Escolha um nível (opcional):</label><br>
                 <select id="nivel">
@@ -62,8 +67,8 @@
 
             </div>
         </div>
-        
-        <div id="mensagem-container" style="display: none;"></div>  
+
+        <div id="mensagem-container" style="display: none;"></div>
 
         <div id="barra">
             <p id="progresso-texto">Pergunta 1 de 5</p>
@@ -72,7 +77,7 @@
                 <div id="progresso-preenchido"></div>
             </div>
         </div>
-          
+
     </div>
 
     <script src="script/Jogo.js"></script>
@@ -86,7 +91,8 @@
             document.getElementById("alterar-nivel-btn").style.display = "inline-block";
         }        
     </script>
-    
-    
+
+
 </body>
+
 </html>
